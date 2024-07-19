@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{%block title%}{%endblock%}
+
+
+
+{% block titles %} login {% endblock %}
+
+{% block body %} 
+<main class="h-full flex justify-center relative top-28 p-8">
+    <form class=" h-[400px] w-full p-8 pt-20 rounded-lg shadow-md sm:w-[500px]" method="POST" action="{{ url_for('users.login') }}">
+        {% with messages = get_flashed_messages()  %}
+             {% if messages %}
+                <br>
+                {%for message in messages %}
+                    <div class="alert alert-primary alert-dismissible " role="alert" >
+                        <strong>{{message}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                    </div>
+                {% endfor %}
+             {% endif %}
+        {% endwith %}
+        
+        <h1 class="h3 mb-3 fw-normal text-center font-bold">Login to your account</h1>
+
+        <div class="flex flex-col gap-1">
+            <input autocomplete="off" type="text" class="h-8 pl-2 outline-none rounded-sm " id="username" name="username" placeholder="jondoe">
+            <hr>
+            <input autocomplete="off" type="password" class="h-8 pl-2 outline-none rounded-sm" id="Password" name="password" placeholder="Password">
+            <hr>
+        </div>
+
+        <div class="flex justify-between mt-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+            <label for="" class="text-gray-400">forgot your password</label>
+        </div>
+        <button class=" bg-black text-white w-full h-9 mt-2" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    </form>
+</main>
+{%endblock%}

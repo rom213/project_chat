@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head class="h-full">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block titles %} {% endblock %} </title>
+    {% block customCss %}
+    {% endblock %}
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-full">
+    {% block body %}
+    {% endblock %}
+</body>
+
+</html>

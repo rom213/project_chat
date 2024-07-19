@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head class="h-full">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3.2.26/dist/vue.global.js"></script>
+    <style>
+        .parking-slot {
+            border: 1px solid #ccc;
+        }
+        .occupied {
+            background-color: #1E3A8A; /* Tailwind's blue-900 */
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="h-screen pl-2 pt-2 pb-2 flex">
+    <div id="sidebar-app" class="flex flex-col h-full w-full">
+
+        <!-- Botón para mostrar/ocultar el sidebar -->
+        <button @click="toggleSidebar" class="mb-2 p-2 bg-red-200 w-12 absolute top-24 z-50 ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+              </svg>              
+        </button>
+
+        <div class="flex flex-grow">
+            <div :class="{'hidden': !showSidebar, 'h-full w-60 bg-black text-white flex justify-center rounded-l-2xl': true}">
+                {% block sidebar %}
+                {% endblock %}
+            </div>
+            <div class="h-full flex-grow relative">
+                {% block header %}
+                {% endblock %}
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { ref } = Vue;
+
+        const app = {
+            setup() {
+                const showSidebar = ref(true);
+                const inputSim = ref("romario");
+
+                const toggleSidebar = () => {
+                    showSidebar.value = !showSidebar.value;
+                };
+
+                return {
+                    showSidebar,
+                    toggleSidebar,
+                    inputSim
+                };
+            }
+        };
+
+        Vue.createApp(app).mount('#sidebar-app');
+    </script>
+</body>
+
+</html>
