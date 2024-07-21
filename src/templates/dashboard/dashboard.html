@@ -22,19 +22,22 @@
 
 <body class="h-screen pl-2 pt-2 pb-2 flex">
     <div id="sidebar-app" class="flex flex-col h-full w-full">
-
-        <!-- Botón para mostrar/ocultar el sidebar -->
-        <button @click="toggleSidebar" class="mb-2 p-2 bg-red-200 w-12 absolute top-24 z-50 ">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <button @click="toggleSidebar" class="mb-2 p-2 bg-red-200 w-9 absolute top-6 z-50 rounded-r-sm">
+            <svg v-if="showSidebar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
-              </svg>              
+            </svg>   
+            <svg v-if="!showSidebar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+              </svg>
+                         
         </button>
 
         <div class="flex flex-grow">
-            <div :class="{'hidden': !showSidebar, 'h-full w-60 bg-black text-white flex justify-center rounded-l-2xl': true}">
+            <div :class="{'h-full w-60 bg-red-500 text-white flex justify-center rounded-l-2xl': true, 'w-14 overflow-hidden pr-2': !showSidebar}">
                 {% block sidebar %}
                 {% endblock %}
             </div>
+            
             <div class="h-full flex-grow relative">
                 {% block header %}
                 {% endblock %}
@@ -51,7 +54,6 @@
             setup() {
                 const showSidebar = ref(true);
                 const inputSim = ref("romario");
-
                 const toggleSidebar = () => {
                     showSidebar.value = !showSidebar.value;
                 };

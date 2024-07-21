@@ -1,0 +1,11 @@
+{
+  "name": "adso_flask",
+  "version": "1.0.0",
+  "description": "Proyecto ADso Flask con Vue",
+  "main": "index.js",
+  "dependencies": {
+    "tailwindcss": "^3.4.6"
+  },
+  "author": "Tu Nombre",
+  "license": "MIT"
+}
