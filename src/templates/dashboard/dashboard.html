@@ -9,12 +9,15 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <script src="https://unpkg.com/vue@3.2.26/dist/vue.global.js"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
     <style>
         .parking-slot {
             border: 1px solid #ccc;
         }
+
         .occupied {
-            background-color: #1E3A8A; /* Tailwind's blue-900 */
+            background-color: #1E3A8A;
+            /* Tailwind's blue-900 */
             color: white;
         }
     </style>
@@ -23,21 +26,26 @@
 <body class="h-screen pl-2 pt-2 pb-2 flex">
     <div id="sidebar-app" class="flex flex-col h-full w-full">
         <button @click="toggleSidebar" class="mb-2 p-2 bg-red-200 w-9 absolute top-6 z-50 rounded-r-sm">
-            <svg v-if="showSidebar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
-            </svg>   
-            <svg v-if="!showSidebar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
-              </svg>
-                         
+            <svg v-if="showSidebar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+            </svg>
+            <svg v-if="!showSidebar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+            </svg>
+
         </button>
 
         <div class="flex flex-grow">
-            <div :class="{'h-full w-60 bg-red-500 text-white flex justify-center rounded-l-2xl': true, 'w-14 overflow-hidden pr-2': !showSidebar}">
+            <div
+                :class="{'h-full w-60 bg-red-500 text-white flex justify-center rounded-l-2xl': true, 'w-16 overflow-hidden pr-2': !showSidebar}">
                 {% block sidebar %}
                 {% endblock %}
             </div>
-            
+
             <div class="h-full flex-grow relative">
                 {% block header %}
                 {% endblock %}
@@ -49,19 +57,54 @@
 
     <script>
         const { ref } = Vue;
+        const socket = io();
 
         const app = {
             setup() {
                 const showSidebar = ref(true);
                 const inputSim = ref("romario");
+                const buttons = ref({
+                    security: false,
+                    opendoor: false,
+                    offlights: false,
+                    alarm: false,
+                    room: false,
+                    dinning: false,
+                    bathroom: false,
+                    yarn: false
+                })
+
+
+                
+                socket.on('status_update', (data) => {
+                    buttons.value = data;
+                });
+
+                const tooglebooton = (button) => {
+                    buttons.value[button] = !buttons.value[button];
+                    socket.emit('toggle_button', { button: button });
+                }
+
+
                 const toggleSidebar = () => {
                     showSidebar.value = !showSidebar.value;
                 };
+                
+                
+                const strokSecurityColor=()=>{
+                    return this.buttons.security ? 'red' : 'green';
+                }
+
+
+
 
                 return {
                     showSidebar,
                     toggleSidebar,
-                    inputSim
+                    tooglebooton,
+                    buttons,
+                    inputSim,
+                    strokSecurityColor
                 };
             }
         };

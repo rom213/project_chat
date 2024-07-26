@@ -15,33 +15,9 @@ class ImageModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image_path = db.Column(db.String(255), nullable=False)
     rfid_code = db.Column(db.String(55), nullable=False)
-    
-""" @home_bp.before_app_first_request
-def setup_db():
-    db.init_app(current_app)
-    with current_app.app_context():
-        db.create_all() """
 
-led_cosina_status = False
-led_cuarto_status = False
-led_sala_status = False
-led_frente_status = False
-take_photo = False
 
-@home_bp.route('/toggle', methods=['POST'])
-def toggle():
-    global led_cosina_status, take_photo
-    data = request.get_json()
-    if "led_on" in data:
-        led_cosina_status = not led_cosina_status
-    if "take_photo" in data:
-        take_photo = not take_photo
-    return jsonify({"take_photo": take_photo, "led_on": led_cosina_status})
 
-@home_bp.route('/status', methods=['GET'])
-def status():
-    global take_photo, led_cosina_status
-    return jsonify({"take_photo": take_photo, "led_cosina": led_cosina_status})
 
 @home_bp.route('/upload_image', methods=['POST'])
 def upload_img():
