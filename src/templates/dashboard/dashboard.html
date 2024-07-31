@@ -36,6 +36,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
             </svg>
+
         </button>
 
         <div class="flex flex-grow">
@@ -55,14 +56,14 @@
     </div>
 
     <script>
-        const { ref, reactive } = Vue;
+        const { ref } = Vue;
         const socket = io();
 
         const app = {
             setup() {
                 const showSidebar = ref(true);
                 const inputSim = ref("romario");
-                const buttons = reactive({
+                const buttons = ref({
                     security: false,
                     opendoor: false,
                     offlights: false,
@@ -71,36 +72,31 @@
                     dinning: false,
                     bathroom: false,
                     yarn: false
-                });
+                })
 
-                socket.on('connect', () => {
-                    console.log('Connected to server');
-                });
 
+                
                 socket.on('status_update', (data) => {
-                    for (let key in data) {
-                        if (buttons.hasOwnProperty(key)) {
-                            buttons[key] = data[key];
-                        }
-                    }
-                });
-
-                socket.on('disconnect', () => {
-                    console.log('Disconnected from server');
+                    buttons.value = data;
                 });
 
                 const tooglebooton = (button) => {
-                    buttons[button] = !buttons[button];
+                    buttons.value[button] = !buttons.value[button];
                     socket.emit('toggle_button', { button: button });
-                };
+                }
+
 
                 const toggleSidebar = () => {
                     showSidebar.value = !showSidebar.value;
                 };
+                
+                
+                const strokSecurityColor=()=>{
+                    return this.buttons.security ? 'red' : 'green';
+                }
 
-                const strokSecurityColor = () => {
-                    return buttons.security ? 'red' : 'green';
-                };
+
+
 
                 return {
                     showSidebar,
