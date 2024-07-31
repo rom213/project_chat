@@ -1,5 +1,10 @@
 from flask import Blueprint, request, jsonify
-from flask_socketio import emit
+from flask_socketio import SocketIO, emit
+import requests
+from websocket import create_connection, WebSocket
+import threading
+import json
+import logging
 
 sokets_bp = Blueprint('sokets', __name__)
 
@@ -14,22 +19,94 @@ buttons_state = {
     'yarn': False
 }
 
+NODE_SERVER_URL = "http://192.168.1.103:5000/update_buttons"
+NODE_SERVER_WS_URL = "ws://192.168.1.103:5000"
 
-def register_socketio_events(socketio):
+# Definir socketio globalmente
+socketio = None
+ws = None
+
+logging.basicConfig(level=logging.DEBUG)
+
+@sokets_bp.route('/update_buttons', methods=['POST'])
+def update_buttons():
+    global buttons_state
+    buttons_state = request.json
+    logging.debug(f"Received button state update: {buttons_state}")
+    emit_status_update()
+    return jsonify(buttons_state), 200
+
+def emit_status_update():
+    global socketio
+    if socketio:
+        socketio.emit('status_update', buttons_state, namespace='/')
+
+def register_socketio_events(socketio_instance):
+    global socketio
+    socketio = socketio_instance
+
     @socketio.on('connect')
     def handle_connect():
-        emit('status_update', buttons_state)
+        emit('status_update', buttons_state, namespace='/')
 
     @socketio.on('toggle_button')
     def handle_toggle_button(data):
         button = data['button']
         buttons_state[button] = not buttons_state[button]
-        emit('status_update', buttons_state, broadcast=True)
+        emit('status_update', buttons_state, namespace='/')
+        # Notify the Node.js server about the button state change
+        requests.post(NODE_SERVER_URL, json=buttons_state)
+        # Also send update via WebSocket
+        send_ws_update()
 
-    
     @socketio.on('message')
     def handle_message(message):
-        print("received message= " + message)
+        logging.debug(f"Received message: {message}")
         if message != "User connected!":
-            emit('message', message, broadcast=True)
+            emit('message', message, namespace='/')
 
+def send_ws_update():
+    global ws
+    try:
+        if ws and ws.connected:
+            logging.debug("Sending data through WebSocket")
+            ws.send(json.dumps(buttons_state))
+        else:
+            logging.warning("WebSocket is closed. Reconnecting...")
+            connect_ws()
+            ws.send(json.dumps(buttons_state))
+    except WebSocket.ConnectionClosedException as e:
+        logging.error(f"Failed to send data: {e}")
+        connect_ws()
+
+def connect_ws():
+    global ws
+    try:
+        ws = create_connection(NODE_SERVER_WS_URL)
+        logging.info("WebSocket connection established")
+    except Exception as e:
+        logging.error(f"Failed to connect WebSocket: {e}")
+
+def start_ws_client():
+    global ws
+    while True:
+        try:
+            connect_ws()
+            while ws.connected:
+                result = ws.recv()
+                if result:
+                    data = json.loads(result)
+                    logging.debug(f"Received data from WebSocket: {data}")
+                    global buttons_state
+                    buttons_state = data
+                    emit_status_update()
+        except WebSocket.ConnectionClosed:
+            logging.warning("WebSocket connection closed, reconnecting...")
+            continue
+        except Exception as e:
+            logging.error(f"WebSocket error: {e}")
+            continue
+
+# Run WebSocket client in a separate thread
+ws_thread = threading.Thread(target=start_ws_client)
+ws_thread.start()

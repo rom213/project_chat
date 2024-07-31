@@ -9,3 +9,5 @@ def init_app(app, socketio):
     app.register_blueprint(sokets_bp, url_prefix='/socket')
     app.register_blueprint(home_bp, url_prefix='/')
     socketio.init_app(app)
+
+__all__ = ['init_app', 'register_socketio_events']

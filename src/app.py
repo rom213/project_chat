@@ -18,14 +18,14 @@ login_manager_app = LoginManager(app)
 def load_user(id):
     return ModelUser.get_by_id(mysql, id)
 
-socketIO = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
-init_app(app, socketIO)
-register_socketio_events(socketIO)
+init_app(app, socketio)
+register_socketio_events(socketio)
 
 if __name__ == '__main__':
-    socketIO.run(app, host='0.0.0.0', port=5000, debug=True)
+    socketio.run(app, host='192.168.1.103', port=5001, debug=True)
