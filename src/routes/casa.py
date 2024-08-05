@@ -48,8 +48,8 @@ def upload_img():
             image.save(filepath, 'JPEG')
 
             new_image = ImageModel(image_path=filepath, rfid_code=card_code)
-            db.session.add(new_image)
-            db.session.commit()
+            #db.session.add(new_image)
+            #db.session.commit()
 
             return jsonify({'message': 'Image uploaded successfully'}), 200
         except Exception as e:

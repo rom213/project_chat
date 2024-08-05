@@ -19,8 +19,8 @@ buttons_state = {
     'yarn': False
 }
 
-NODE_SERVER_URL = "http://192.168.1.103:5000/update_buttons"
-NODE_SERVER_WS_URL = "ws://192.168.1.103:5000"
+NODE_SERVER_URL = "http://192.168.1.104:5000/update_buttons"
+NODE_SERVER_WS_URL = "ws://192.168.1.104:5000"
 
 # Definir socketio globalmente
 socketio = None
