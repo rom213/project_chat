@@ -62,7 +62,13 @@
         const app = {
             setup() {
                 const showSidebar = ref(true);
-                const inputSim = ref("romario");
+                const navigate = ref("dashboard");
+
+
+                const toogleNavigation=(value)=>{
+                    navigate.value=value;
+                }
+
                 const buttons = ref({
                     security: false,
                     opendoor: false,
@@ -71,7 +77,8 @@
                     room: false,
                     dinning: false,
                     bathroom: false,
-                    yarn: false
+                    yarn: false,
+                    closeDoor:false
                 })
 
 
@@ -103,7 +110,8 @@
                     toggleSidebar,
                     tooglebooton,
                     buttons,
-                    inputSim,
+                    toogleNavigation,
+                    navigate,
                     strokSecurityColor
                 };
             }

@@ -16,7 +16,8 @@ buttons_state = {
     'room': False,
     'dinning': False,
     'bathroom': False,
-    'yarn': False
+    'yarn': False,
+    'closeDoor':True
 }
 
 NODE_SERVER_URL = "http://192.168.1.104:5000/update_buttons"
@@ -30,13 +31,15 @@ ws = None
 def update_buttons():
     global buttons_state
     buttons_state = request.json
+    print("romario")
+
     emit_status_update()
     return jsonify(buttons_state), 200
 
 def emit_status_update():
     global socketio
     if socketio:
-        socketio.emit('status_update', buttons_state, broadcast=True)
+        socketio.emit('status_update', buttons_state, namespace='/')
 
 def register_socketio_events(socketio_instance):
     global socketio

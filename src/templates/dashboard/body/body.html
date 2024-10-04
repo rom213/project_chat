@@ -23,7 +23,13 @@ dashboard
 {% endblock %}
 
 {% block body %}
-    {% include 'dashboard/body/controls/controls.html' %}
+<div>
+    <div v-if="navigate==='dashboard'">{% include 'dashboard/body/controls/controls.html' %}</div>
+    <div v-if="navigate==='users'">
+        {% include 'dashboard/body/users/users.html' %}
+    </div>
+</div>
+
 {% endblock %}
 
 

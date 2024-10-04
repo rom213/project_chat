@@ -1,0 +1,130 @@
+<div
+    class="grid grid-cols-4 grid-rows-2 gap-6 bg-blue-50 w-full h-full absolute -left-3 rounded-2xl pt-16 overflow-x-auto p-10">
+    <div>
+        <div class="grid h-72  lg:col-span-2 p-2">
+            <div class="bg-gray-200 rounded-3xl flex flex-col pt-0">
+                <div class="flex justify-center p-4">
+                    <svg v-if="!buttons.closeDoor" width="198" height="149" viewBox="0 0 198 149" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="198" height="149" rx="74.5" fill="url(#pattern0_32_75)"/>
+                        <defs>
+                        <pattern id="pattern0_32_75" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_32_75" transform="matrix(0.00752525 0 0 0.01 0.123737 0)"/>
+                        </pattern>
+                        <image id="image0_32_75" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADMElEQVR4nO2dv48MYQCGJwoKiWhU1x2FRCO5RkTvR+gkolFKVFdqlZQ6WhUaREcr8Qc4RKFZ4Rrr2E6CRyYZye6dvXdnZ/bd2b33KW/u5pt5nvm+L1vsTVEsCcBh4CrwCBgAn4AL876uPQWwAtwAXgA/2Ulv3te49ACrwDrwCviDYN7Xu3QA+4A14BbwTgVIkNlEOFCu/8B9YLOG/y8J0l6Eg8Al4AHwvUaEj8Bd4Ew1m7JkNYhwBLgGPB+zKY/jbbWEnfjPOUdo+qAsPXU35Ypf1e+Xf7cizj+C784WhGoZOQ3cAT4wOT+Ah8AV4FCN8XYNQnuUn3POF3tgU74HnAX2Tzm2K8hifM4BLgPfatzUe+A2cKqcTS2MP4I63pSi60wwI34Dr4GbwPEZjD+COt6Uous03ZSbMmthyxCk1qbclAQxC1EkiFmIIkHMQhQJYhaiSBCzEEWCmIUoEsQsRJEgZiGKBDELUSSIWYgiQcxCFAliFqJIELMQRYKYhSgSxCxEkSBmIYoEMQtRJIhZiCJBzEIUCWIWokgQsxBFgpiFKBLELESRIGYhigQxC1EkiFmIIkHMQhQJYhaiSBCzEEWCmIUoEsQsRJEgZiGKBDELUSSIWYgiQcxC/gEcq/6jwwZw1DX+vB+4Lgd5NjTME9f4CTIGYGtITn/o5wkypxmylSDdCvI0S1b3NvUN4E029Q4EGUf2ELMQRYKYhSgSxCxEkSBmIYoEMQtRJIhZiCJBzEIUCWIWokgQsxBFgpiFKBLELESRIGYhigQxC1EkiFmIIkHMQhQJYhaiSBCzEEWCmIUoEsQsRJEgZiGKBDELUSSIWYgiQcxCFAliFqJIELMQRYKYhSgSxCxEkSBmIYoEMQtRJIhZiCJBzEIUCWIWokgQsxBFgpiFKBLELESRIEJI9Ybok228K72NILRM0XV2ufYB8LJ6j/rarAKRIDuEfJ7w4epX3zVvdQbhDdIrug5wEdic4ub6bQTaflJ1vAE94FyxKACrwHXgMfB1ihseTLPEbT/J7O90QXEFIkG6FYgEaU4ps9o31qt9pNxPpt2DRmjh8kJLMyhBuhioWDD+Aq2mh0mj/9mdAAAAAElFTkSuQmCC"/>
+                        </defs>
+                        </svg>
+                    
+                        <svg v-if="buttons.closeDoor" width="171" height="136" viewBox="0 0 171 136" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="171" height="136" fill="url(#pattern0_38_3)"/>
+                            <defs>
+                            <pattern id="pattern0_38_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_38_3" transform="matrix(0.00795322 0 0 0.01 0.102339 0)"/>
+                            </pattern>
+                            <image id="image0_38_3" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACZUlEQVR4nO3cMW7TABxG8RwEZq5CByZO2QqJOzVILICAC/xRJLNUDcURff2Z+EmeMvg9f0psLzkcVjIz72fm6+w8xXFmbg7Pzcx8flJl5zf3xSA7K9gHufZBnv2EG2MfBGMfBGMfBIMbZGbeXcmj8fGx9wxxkE9zxe8ZAw5yVRz2QSw2N8jhP2O0fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhGK4fk4ohuvnhC5gZl7PzIeZ+bkcH2fmzSb7OaHLxnjsD9i+nT7bXD8ntJLlm3GOu831c0IrWX6izvFjc/2c0L8d5Pvm+jmhlSw38HPcbq6fE1rJ6WlquYE/5MvMvNpcPyd0+ZPW3emesRy3fzMG2c8JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM188JxXD9nFAM1//whDt/Zh/kCgc5vnTkhrgvBrk5neilS8fndI3err3AvwA1ff4XFQJerAAAAABJRU5ErkJggg=="/>
+                            </defs>
+                            </svg>
+                            
+                        
+                        
+                            
+                        
+
+
+                </div>
+                <div class="text-center">Close Door</div>
+                <div class="w-full h-12 flex justify-center">
+                    <div class="bg-white w-28 h-12 rounded-xl flex justify-around items-center relative">
+                        <div @click="tooglebooton('closeDoor')" class="cursor-pointer">
+                            <svg width="40" height="30" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="65" height="50" fill="url(#pattern0_30_73)"/>
+                                <defs>
+                                <pattern id="pattern0_30_73" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0_30_73" transform="matrix(0.00769231 0 0 0.01 0.115385 0)"/>
+                                </pattern>
+                                <image id="image0_30_73" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD30lEQVR4nO2d20sUcRTHpbfotaee6q/oLSaw2pl1du1i7IO12oA5oxYyeHvR7UKoRVgWq+tIM4NaSdCW4A2ttl0ICUKQ9NGgqOxCEvZgtxOzaiw6tRdn3Fn9HjgvLqwzv4/nnM9czcvLgdDlAzt00cWrIqtrIvtFkzhandnexk0ft04f2q2K7jJV5AZUiV00gwAgNkZTU9M2XeL2ahJ3SZXYKbNFv33WS5GWMno7GIznxI0aVIiV0V9dtF0T3fmayF7TJPaNGYR7Ncfo2VWJXt+9QL8iIaKYQjQzHs/3Qx0Ast7oLSvYqYrsSVVi+zWJ/WoGIdzgo8mgTJ8eXiGKdi1BSEwAMY9kfT3V7KniafR8CU1319O30fa1AFIA4qTMy1asZ6PvVBdStLWcXvWdo++PO5JDiAFIykCGA/54izHyQYOPeioLTCEYn724WU0fwq30O5oGgFhyICu/P1tprIFjKsTYoJXFSgSgV7hpqPEETYVqaX6wLXMAseRALPvuDNNYA0cDMdrR4qOgPQswAyBpA0n82UYA4fcxWcmcqRAA2eJAfK70spjzUInncEZ5/KALFUJJgHj356eVpYVHSfYLGaUBBS0rBiA51bK8qBAA4WFZCioELUvAUCfMkNw/DvFiqAMIj6GuoELQsgQMdcIMwVCXcS4LlmV5QHsZXKAiHIegQmRcD1FwpI4ZIuCKIc5lWRywLAaWRbAsVIgMy1JgWZghAiwLlmVxwLIYWBbBslAhMixLgWVhhgiwLFiWxQHLYmBZBMvKboUsjFyn2d4AbiV1Sssau1Aa/76P4cu4t9cJQHrPeOLf97KrDkAcBUSpBxAnABlDy3LaUG+n2T4MdccAIbPEAzsAIuPFAQoqJN1Ay2L+/tHgbUAzeOgTFeLHy2cIloUZQng9E45DrAlYFgPLIhypo0Jk3Aak4FwWZoiA24BwttfigGUxsCyCZaFCZFiWAsvCDBFgWbAsiwOWxcCyCJaFCpFhWQosCzNEgGXBsiwOWBYDyyJYFipEhmUpsCzMEAGWBcuyOGBZDCyLYFmoEBmWpcCyMEMEWBYsyybLGg7448/YJT5nt1X+n/rk8n4ba7CyLVkH8q/sl4/Q+MVTNBWqpbn7zfQj0mEbEH55gTY6zfbbsUBWp17hpnCDj6Kt5TTdXb8E6UkngNgZSoVnly66eE1kA6rIDWgi+y5dSD8jnWlXiK07tdliNSRV4ubShvQ0BCB2hl7J79FFd5EqcS2qxI1rEjf/P0g9VTwNNhbTRFsVzY2E4vk8WIcK2dB2J3GfU51Ptm4YIm8tJIlt1kQuporcwmYG8gfBbfRMsdiiSwAAAABJRU5ErkJggg=="/>
+                                </defs>
+                                </svg>
+                                
+                        </div>
+                        <div :class="[
+                        'transition-all duration-500 ease-in-out',
+                        buttons.closeDoor ? 'bg-gray-300 h-11 w-11 rounded-full absolute right-[5px]' : 'bg-gray-200 h-11 w-11 rounded-full absolute left-[5px]'
+                    ]">
+
+                        </div>
+                        <div @click="tooglebooton('closeDoor')" class="cursor-pointer">
+                            <svg width="45" height="40" viewBox="0 0 75 60" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="75" height="60" fill="url(#pattern0_30_70)"/>
+                                <defs>
+                                <pattern id="pattern0_30_70" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0_30_70" transform="matrix(0.008 0 0 0.01 0.1 0)"/>
+                                </pattern>
+                                <image id="image0_30_70" width="100" height="100" xlink:href="data:image/png;base64,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"/>
+                                </defs>
+                                </svg>
+                                
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-start-1 row-start-2">
+        <div class="grid h-72  lg:col-span-2 p-2">
+            <div class="bg-gray-200 rounded-3xl flex flex-col pt-0">
+                <div class="flex justify-center">
+                    <svg width="159" height="164" viewBox="0 0 159 164" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M59.625 82L72.875 95.6667L99.375 68.3333M136.594 40.8907C115.647 42.0381 95.1134 34.5672 79.5 20.1173C63.8866 34.5672 43.3533 42.0381 22.4057 40.8907C20.7199 47.6223 19.8695 54.5474 19.875 61.5C19.875 99.7052 45.209 131.815 79.5 140.917C113.791 131.815 139.125 99.712 139.125 61.5C139.125 54.3797 138.244 47.478 136.594 40.8907Z"
+                            :class="{'stroke-green-600':true, 'stroke-white': !buttons.security}" stroke-width="4"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                </div>
+                <div class="text-center">Security Home</div>
+                <div class="w-full h-12 flex justify-center">
+                    <div class="bg-white w-28 h-12 rounded-xl flex justify-around items-center relative">
+                        <div @click="tooglebooton('security')" class="cursor-pointer">
+                            <svg width="26" height="35" viewBox="0 0 38 45" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 20.1111V10.5556C10 8.02126 10.9482 5.59077 12.636 3.79876C14.3239 2.00674 16.6131 1 19 1C21.3869 1 23.6761 2.00674 25.364 3.79876C27.0518 5.59077 28 8.02126 28 10.5556M19 29.6667V34.4444M5.5 44H32.5C33.6935 44 34.8381 43.4966 35.682 42.6006C36.5259 41.7046 37 40.4894 37 39.2222V24.8889C37 23.6217 36.5259 22.4065 35.682 21.5105C34.8381 20.6145 33.6935 20.1111 32.5 20.1111H5.5C4.30653 20.1111 3.16193 20.6145 2.31802 21.5105C1.47411 22.4065 1 23.6217 1 24.8889V39.2222C1 40.4894 1.47411 41.7046 2.31802 42.6006C3.16193 43.4966 4.30653 44 5.5 44Z"
+                                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div :class="[
+                        'transition-all duration-500 ease-in-out',
+                        buttons.security ? 'bg-gray-300 h-11 w-11 rounded-full absolute right-[5px]' : 'bg-gray-200 h-11 w-11 rounded-full absolute left-[5px]'
+                    ]">
+
+                        </div>
+                        <div @click="tooglebooton('security')" class="cursor-pointer">
+                            <svg width="45" height="45" viewBox="0 0 82 59" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="93" height="59" fill="url(#pattern0_9_181)" />
+                                <defs>
+                                    <pattern id="pattern0_9_181" patternContentUnits="objectBoundingBox" width="1"
+                                        height="1">
+                                        <use xlink:href="#image0_9_181"
+                                            transform="matrix(0.00634409 0 0 0.01 0.182796 0)" />
+                                    </pattern>
+                                    <image id="image0_9_181" width="100" height="100"
+                                        xlink:href="data:image/png;base64,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" />
+                                </defs>
+                            </svg>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div></div>
+
+
+</div>

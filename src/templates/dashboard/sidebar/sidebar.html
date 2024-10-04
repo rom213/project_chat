@@ -9,7 +9,7 @@
     </div>
 
     <div :class="{'flex flex-col gap-4':true, '':!showSidebar}">
-        <div class="flex gap-3  text-white">
+        <div @click="toogleNavigation('dashboard')" class="cursor-pointer flex gap-3  text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -25,7 +25,7 @@
               
             <div v-if="showSidebar">Security</div>
         </div>
-        <div class="flex gap-3 text-gray-300">
+        <div @click="toogleNavigation('users')" class="cursor-pointer flex gap-3 text-gray-300">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
