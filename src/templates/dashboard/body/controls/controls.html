@@ -110,22 +110,22 @@
             </div>
         </div>
         <div class="grid h-72 lg:col-span-2 p-2">
-            <div class="bg-black rounded-3xl">
+            <div class="bg-gray-200 rounded-3xl">
 
             </div>
         </div>
     </div>
 
-    <div class="w-full  grid md:grid-cols-2 lg:grid-cols-3 grid-rows-2 p-3 gap-5">
+    <div class="w-full p-4 grid md:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-5">
         <div :class="{
-            'w-full h-full bg-gray-200 rounded-xl flex justify-center flex-col items-center relative p-2': true,
+            'w-full h-full p-4 bg-gray-200 rounded-xl flex justify-center flex-col items-center relative': true,
             'bg-yellow-200': buttons.room
           }">
           
-            <div class="absolute top-1">Room 1</div>
-            <div class="flex items-center gap-4">
+            <div class="relative top-1">Room 1</div>
+            <div class="flex items-center flex-col gap-4">
                 <div>
-                    <svg width="106" height="76" viewBox="0 0 106 76" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    <svg width="106" height="76" class="hidden sm:block" viewBox="0 0 106 76" fill="none" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="106" height="76" fill="url(#pattern0_3_114)" />
                         <defs>
@@ -139,7 +139,7 @@
                     </svg>
                 </div>
                 <div>
-                    <div class="bg-white w-28 h-12 rounded-xl flex justify-around items-center relative">
+                    <div class="bg-white w-44 h-16 rounded-xl flex justify-around items-center relative">
                         <div @click="tooglebooton('room')" class="cursor-pointer">
                             <svg width="48" height="32" viewBox="0 0 53 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -158,8 +158,8 @@
 
                         </div>
                         <div :class="[
-                        'transition-all duration-500 ease-in-out',
-                            buttons.room ? 'bg-yellow-200 h-11 w-11 rounded-full absolute right-[6px]' : 'bg-red-200 h-11 w-11 rounded-full absolute left-[6px]'
+                        'transition-all duration-500 ease-in-out h-14 w-14',
+                            buttons.room ? 'bg-yellow-200  rounded-full absolute right-[6px]' : 'bg-red-200 h-11 w-11 rounded-full absolute left-[6px]'
                         ]">
 
                         </div>
@@ -184,13 +184,13 @@
         </div>
 
         <div :class="{
-            'w-full h-full bg-gray-200 rounded-xl flex justify-center flex-col items-center relative p-2': true,
+            'w-full h-full bg-gray-200 rounded-xl flex justify-center gap-2 flex-col items-center relative p-2': true,
             'bg-yellow-200': buttons.dinning
           }">
-            <div class="absolute top-1">Dining room</div>
-            <div class="flex items-center gap-4">
+            <div class="relative sm:absolute top-1">Dining room</div>
+            <div class="flex items-center gap-4 flex-col">
                 <div>
-                    <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    <svg width="90" height="90" class="hidden sm:block" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="90" height="90" fill="url(#pattern0_4_145)" />
                         <defs>
@@ -204,7 +204,7 @@
 
                 </div>
                 <div>
-                    <div class="bg-white w-28 h-12 rounded-xl flex justify-around items-center relative">
+                    <div class="bg-white w-44 h-16 rounded-xl flex justify-around items-center relative">
                         <div  @click="tooglebooton('dinning')">
                             <svg width="48" height="32" viewBox="0 0 53 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -223,8 +223,8 @@
 
                         </div>
                         <div :class="[
-                        'transition-all duration-500 ease-in-out',
-                            buttons.dinning ? 'bg-yellow-200 h-11 w-11 rounded-full absolute right-[6px]' : 'bg-red-200 h-11 w-11 rounded-full absolute left-[6px]'
+                        'transition-all duration-500 ease-in-out h-14 w-14',
+                            buttons.dinning ? 'bg-yellow-200  rounded-full absolute right-[6px]' : 'bg-red-200 h-11 w-11 rounded-full absolute left-[6px]'
                         ]">
 
                         </div>
@@ -248,13 +248,13 @@
             </div>
         </div>
         <div :class="{
-            'w-full h-full bg-gray-200 rounded-xl flex justify-center flex-col items-center relative p-2': true,
+            'w-full h-full bg-gray-200 rounded-xl flex justify-center flex-col gap-2 items-center relative p-2': true,
             'bg-yellow-200': buttons.bathroom
           }">
-            <div class="absolute top-1">bathroom</div>
-            <div class="flex items-center">
+            <div class="relative top-1">bathroom</div>
+            <div class="flex items-center flex-col">
                 <div >
-                    <svg width="125" height="90" viewBox="0 0 125 90" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    <svg width="125" height="90" class="hidden sm:block" viewBox="0 0 125 90" fill="none" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="125" height="90" fill="url(#pattern0_4_152)" />
                         <defs>
@@ -269,7 +269,7 @@
 
                 </div>
                 <div>
-                    <div class="bg-white w-28 h-12 rounded-xl flex justify-around items-center relative">
+                    <div class="bg-white w-44 h-16 rounded-xl flex justify-around items-center relative">
                         <div @click="tooglebooton('bathroom')">
                             <svg width="48" height="32" viewBox="0 0 53 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -288,79 +288,12 @@
 
                         </div>
                         <div :class="[
-                        'transition-all duration-500 ease-in-out',
-                            buttons.bathroom ? 'bg-yellow-200 h-11 w-11 rounded-full absolute right-[6px]' : 'bg-red-200 h-11 w-11 rounded-full absolute left-[6px]'
+                        'transition-all duration-500 ease-in-out h-14 w-14',
+                            buttons.bathroom ? 'bg-yellow-200 rounded-full absolute right-[6px]' : 'bg-red-200 h-11 w-11 rounded-full absolute left-[6px]'
                         ]">
 
                         </div>
                         <div @click="tooglebooton('bathroom')">
-                            <svg width="41" height="51" viewBox="0 0 41 51" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <rect width="41" height="51" fill="url(#pattern0_4_131)" />
-                                <defs>
-                                    <pattern id="pattern0_4_131" patternContentUnits="objectBoundingBox" width="1"
-                                        height="1">
-                                        <use xlink:href="#image0_4_131"
-                                            transform="matrix(0.0111111 0 0 0.00893246 0 0.0980392)" />
-                                    </pattern>
-                                    <image id="image0_4_131" width="90" height="90"
-                                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEmUlEQVR4nO2cTYgcRRTHfzPJJh5EEj0IKoISI4tIvJh4MRpBcDXmYj7wAz34ERfdRI9eXNGDCUQPCyoRMYoRAoqgaBLxK14UDxIPKhEdPegmhMSo8bCukrQUvIVlmOru7X7V9XqoHzxYZmbfq/enuvpNT9WDRCKRSCQSiURiIGuArcDaIdBnLfAwsBpjPAdk82wv7aQjY5+fyy4MzeRsgN1ew2cXWAVsA3YDnwE94BQwK+b+/kne2y2fXSViVWWDJ5drMcBWz+AmK4i7DtgDnPT4LGMngFeBG8XnQpj0+HQ5RucGz+A2lfz/pbIe9mqI67Oe+HYxyrDZ4+d6jPBG38AOlphNHeBeYDqAwP32G3BPiWXFjfnDvv91uZlivVx6m0qIvBL4vAGB++0QsKJgbF2Z2ZOSU2u5A/gjgshzdhq4kyGmI6VSZsR21qxQTLIYeN2AuP32moxtKOhIuZUZtb3DMrN3KQuzP9Ay0mp8dWlW0f4Drgo0s++mpayUO3ymaFPiO4TQf5Uo/czh1rxPlYU4BVwQUOhMavtWrdf3BRBhYp7/LKDdRUs4J8DX6u+BkYaE/nUBz0aiMh4g+Vv6YmSB7UGM0w3wFG7/gDihhf7R+lp9U6ByrmmhM+s/ye0JVM7FEPoVjNKRXzdClHMxhD5udfm4JmA5F0NoZ1djkG0By7lYQj+KQV4OWM7FEvolDHJIKbkPSsRqSuhPGtCNJfL48Kh809shr/n4RSGxf4FR5TzGaoynp6iPlx0DArvXfNTZi5EVlHNVGZH1vup4Tijq4+XoAEfHcj4/G7Ccq8r2mmP6R1EfL9Oe/RGhhJ5Al+UKV9msoj4LujSezfn8yYDlXBWmFJYyl5OWPl6WiLPpBm6GY+gyKjfWukL/rKiPGtq/qGQ5VsQBpTgfY5AXjQh9q2KcFzDIQwaEHqlZzvWby8kcKwwIvV05zuUYpRdR6POB3xVjuNMEZnkmotBTyjGexjBXAGcjCD2qVM7N2VnJxTTvRRD6gLL/d2kBaxoWeiyAf5dDK3i7IaEXA98q+36LFnEZMNOA0BPKfmdk7K3i8cBCL1d6Bj7fHqOFdAJtGs8ClXMfVTgAaoaLA8y6LEA5506JXUrL2RhAaO0rxY1xKNgZaAnRsEq/81mlC7xvQNR+c8eRFzFknAd8Z0DcOfsBWMaQcmXk48lzdtqzHbgVpdwGOai+ueByvA04E1HkMzKGokP3T1o8dP/mgLUvryZ9IqLQLraPRZbbSKzzJORmRd4VsC+CyPsK9jxvsdwYZbxiq59zgSMNinxEYubxlOVWP9d5Bre+5Ob1mQZEnpFYrW5e5Xi+xrr2SANCuxhV27G5VnOmWC2NoqqsZ+8EFNn5rtKQa9xig8G6XCi7SbVF/hO4KHZy1ngggND3x07KIl3ga0WRv2nz8+VYNXlWwW6OnUwikUgkEolEAsXyLlFAErohsjSjm+Fvpa6MiQK+UhD6y6IgCVQ62ZjsHGONpfLkrarIh5s6KjwMXFJR7MOygzWxwJk9Iett3g3SvfeFLBdpJiug1h8jkY9af4xEPtH6YyQSiQRx+B/GW9duo2rXBgAAAABJRU5ErkJggg==" />
-                                </defs>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div :class="{
-            'w-full h-full bg-gray-200 rounded-xl flex justify-center flex-col items-center relative p-2': true,
-            'bg-yellow-200': buttons.yarn
-          }">
-            <div class="absolute top-1">Yarn</div>
-            <div class="flex items-center gap-4">
-                <div>
-                    <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <rect width="90" height="90" fill="url(#pattern0_4_160)" />
-                        <defs>
-                            <pattern id="pattern0_4_160" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                <use xlink:href="#image0_4_160" transform="scale(0.0111111)" />
-                            </pattern>
-                            <image id="image0_4_160" width="90" height="90"
-                                xlink:href="data:image/png;base64,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" />
-                        </defs>
-                    </svg>
-
-
-
-                </div>
-                <div>
-                    <div class="bg-white w-28 h-12 rounded-xl flex justify-around items-center relative">
-                        <div @click="tooglebooton('yarn')">
-                            <svg width="48" height="32" viewBox="0 0 53 32" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <rect width="48" height="32" fill="url(#pattern0_4_122)" />
-                                <defs>
-                                    <pattern id="pattern0_4_122" patternContentUnits="objectBoundingBox" width="1"
-                                        height="1">
-                                        <use xlink:href="#image0_4_122"
-                                            transform="matrix(0.0067086 0 0 0.0111111 0.198113 0)" />
-                                    </pattern>
-                                    <image id="image0_4_122" width="90" height="90"
-                                        xlink:href="data:image/png;base64,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" />
-                                </defs>
-                            </svg>
-
-
-                        </div>
-                        <div :class="[
-                        'transition-all duration-500 ease-in-out',
-                            buttons.yarn ? 'bg-yellow-200 h-11 w-11 rounded-full absolute right-[6px]' : 'bg-red-200 h-11 w-11 rounded-full absolute left-[6px]'
-                        ]">
-
-                        </div>
-                        <div @click="tooglebooton('yarn')">
                             <svg width="41" height="51" viewBox="0 0 41 51" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <rect width="41" height="51" fill="url(#pattern0_4_131)" />
